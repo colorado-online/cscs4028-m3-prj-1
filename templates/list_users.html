@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block main %}
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Pronouns</th>
+            <th>Interests</th>
+        </tr>
+        {%for user in users%}
+            {%if loop.index % 2 == 0%}
+                <tr class="even_row">
+            {%else%}
+                <tr class="odd_row">
+            {%endif%}
+                <td><A href="{{url_for('list_user', id=user.id)}}">{{user.id}}</A></td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.age()}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user.pronouns}}</td>
+                <td>{{user.interests}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p />
+    <button type="button" class="button" onclick=simple_action("{{ url_for('signout') }}")>Sign Out</button>
+    <button type="button" class="button" onclick=confirmed_action("{{ url_for('delete') }}")>Delete Account</button>
+    <script type="text/javascript">
+        function simple_action(target) {
+            window.location = target
+        }
+
+        function confirmed_action(target) {
+            if (confirm('Are you sure?')) {
+                window.location = target
+            }
+        }
+    </script>
+{% endblock %}

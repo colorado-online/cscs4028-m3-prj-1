@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block main %}
+        <form action="" method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <p>{{ form.id.label }} <br> {{ form.id(size=20) }} <span class="visible">visible</span> </p>
+            <p>{{ form.name.label }} <br> {{ form.name(size=30) }}</p>
+            <p>{{ form.email.label }} <br> {{ form.email(size=30) }}</p>
+            <p>{{ form.dob.label }} <br> {{ form.dob(size=1) }} age is <span class="visible">visible</span></p>
+            <p>{{ form.gender.label }} <br> {{ form.gender(size=20) }} <span class="visible">visible</span></p>
+            <p>{{ form.pronouns.label }} <br> {{ form.pronouns(size=20) }} <span class="visible">visible</span></p>
+            <p>{{ form.bio.label }} <br> {{ form.bio(rows=5, cols=50) }} <span class="visible">visible</span></p>
+            <p>{{ form.interests.label }} <br> {{ form.interests(size=30) }} <span class="visible">visible</span></p>
+            <p>{{ form.password.label }} <br> {{ form.password(size=30) }}</p>
+            <p>{{ form.password_confirm.label }} <br> {{ form.password_confirm(size=30) }}</p>
+            <p>{{ form.submit() }}</p>
+        </form>
+{% endblock %}
